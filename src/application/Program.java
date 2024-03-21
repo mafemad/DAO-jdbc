@@ -1,16 +1,21 @@
 package application;
 
-import java.util.Date;
+import java.util.List;
 
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
-		Department obj = new Department(1, "eletronicos");
-		Seller seller = new Seller(1,"joao", "asda@ada", new Date(), 2000.0, obj);
-		System.out.println(seller);
+		
+		SellerDao sellerDao = DaoFactory.createSellerDao();
+		
+		Department dep = new Department(2,null);
+		List<Seller> list = sellerDao.findByDepartment(dep);
+		list.forEach(System.out::println);
 
 	}
 
