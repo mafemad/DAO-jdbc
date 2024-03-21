@@ -19,9 +19,16 @@ public class Program {
 		list.forEach(System.out::println);
 		
 		Seller sel = new Seller(null, "greg", "greg@gmail.com", new Date(), 4000.0, dep);
-		sellerDao.insert(sel);
-		System.out.println("novo id =" + sel.getId());
+		
+		sel = sellerDao.findById(1);
+		System.out.println(sel);
+		sel.setName("carlinhos");
+		sellerDao.update(sel);
+		list.forEach(System.out::println);
+		
 
+		
+		
 	}
 
 }
