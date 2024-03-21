@@ -1,29 +1,19 @@
 package application;
 
-import java.util.Date;
-import java.util.List;
-
 import model.dao.DaoFactory;
-import model.dao.SellerDao;
+import model.dao.DepartmentDao;
 import model.entities.Department;
-import model.entities.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
 		
-		SellerDao sellerDao = DaoFactory.createSellerDao();
+		DepartmentDao dep = DaoFactory.createDepartmentDao();
 		
-		Department dep = new Department(2,null);
-		List<Seller> list = sellerDao.findAll();
-		list.forEach(System.out::println);
-		
-		Seller sel = new Seller(null, "greg", "greg@gmail.com", new Date(), 4000.0, dep);
+		Department dep1 = new Department(null, "salgados");
+		dep.insert(dep1);
 
-		
-		for (int i = 1; i <= 14; i++) {
-			sellerDao.deleteById(i);
-		}
+
 		
 
 		
