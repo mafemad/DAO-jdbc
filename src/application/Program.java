@@ -19,12 +19,11 @@ public class Program {
 		list.forEach(System.out::println);
 		
 		Seller sel = new Seller(null, "greg", "greg@gmail.com", new Date(), 4000.0, dep);
+
 		
-		sel = sellerDao.findById(1);
-		System.out.println(sel);
-		sel.setName("carlinhos");
-		sellerDao.update(sel);
-		list.forEach(System.out::println);
+		for (int i = 1; i <= 14; i++) {
+			sellerDao.deleteById(i);
+		}
 		
 
 		
